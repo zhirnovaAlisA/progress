@@ -1,5 +1,5 @@
-const automateToggle = document.querySelector(".checkbox-automate");
-const automateContainer = document.querySelector(".switch-container-automate");
+const animateToggle = document.querySelector(".checkbox-animate");
+const animateContainer = document.querySelector(".switch-container-animate");
 const hideToggle = document.querySelector(".checkbox-hide");
 const inputValue = document.querySelector(".number");
 const inputBlock = document.querySelector(".value-container");
@@ -34,19 +34,19 @@ inputValue.addEventListener("input", (e) => {
 hideToggle.addEventListener("click", (e) => {
     progressContainer.classList.toggle("hidden");
     inputBlock.classList.toggle("hidden");
-    automateContainer.classList.toggle("hidden");
+    animateContainer.classList.toggle("hidden");
     progressText.classList.toggle("hidden");
 });
 
 
 // блок анимации
 
-let automateInterval = null;
+let animateInterval = null;
 let progressValue = 0; 
 
 // Обработчик 
-automateToggle.addEventListener("change", () => {
-    if (automateToggle.checked) {
+animateToggle.addEventListener("change", () => {
+    if (animateToggle.checked) {
         startAnimation();
     } else {
         stopAnimation();
@@ -57,7 +57,7 @@ automateToggle.addEventListener("change", () => {
 function startAnimation() {
     stopAnimation();
 
-    automateInterval = setInterval(() => {
+    animateInterval = setInterval(() => {
         progressValue += 5; // 5 градусов прогресса за шаг
         if (progressValue >= 360) {
             progressValue = 0; 
@@ -68,7 +68,7 @@ function startAnimation() {
 
 // Прерывание анимации
 function stopAnimation() {
-    clearInterval(automateInterval); 
+    clearInterval(animateInterval); 
     progressValue = 0; 
     progressCircle.style.setProperty("--progress", "0deg"); 
 }
