@@ -1,0 +1,170 @@
+/* Общий контейнер */
+.container {
+    display: flex;
+    flex-direction: column; /* По умолчанию элементы расположены вертикально */
+    align-items: center; 
+    padding: 20px;
+}
+
+/* для широких экранов */
+@media (min-width: 600px) {
+    .container {
+        flex-direction: row; 
+        justify-content: space-around; /* Распределяем элементы равномерно */
+        align-items: center; /* Выравниваем по центру вертикально */
+    }
+
+    .progress-container {
+        margin-right: 20px; /* Отступ справа от progress-circle */
+        justify-self: center;
+    }
+
+    .buttons-wrapper {
+        width: auto; /* Убираем фиксированную ширину */
+        text-align: center; /* Центрируем текст */
+    }
+}
+
+
+.progress-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px; 
+}
+
+/* Внешний круг */
+.progress-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#ff6f61 var(--progress, 0deg), #e0e0e0 var(--progress, 0deg));
+    transition: background 0.3s ease;
+}
+
+/* Внутренний круг */
+.progress-circle-mini {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    background: white;
+}
+
+/* Анимация вращения */
+@keyframes rotate {
+    from {
+        --progress: 0deg;
+    }
+    to {
+        --progress: 360deg;
+    }
+}
+
+/* Класс для активации анимации */
+.progress-circle.animate {
+    animation: rotate 2s linear infinite;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; 
+    width: 100%;
+}
+.buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; 
+}
+
+/* поле ввода */
+.number {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 20px;
+    padding: 5px;
+    border: 2px solid #ccc;
+    font-size: 14px;
+    border-radius: 50px;
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+/* чекбоксы и подписи */
+.switch-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    justify-content: flex-start
+}
+
+.switch-label {
+    margin-left: 10px;
+    font-size: 14px;
+    min-width: 80px;
+    text-align: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Сокрытие стандартного чекбокса */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Фоновая панель */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+/* Кружок внутри панели */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+/* Активный чекбокс */
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+/* Перемещение кружка */
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Класс для сокрытия */
+.hidden {
+    display: none;
+}
