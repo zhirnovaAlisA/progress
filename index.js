@@ -1,11 +1,11 @@
 const animateToggle = document.querySelector(".checkbox-animate");
-const animateContainer = document.querySelector(".switch-container-animate");
 const hideToggle = document.querySelector(".checkbox-hide");
 const inputValue = document.querySelector(".number");
 const inputBlock = document.querySelector(".value-container");
 const progressContainer = document.querySelector(".progress-container");
 const progressCircle = document.querySelector(".progress-circle");
 const progressText = document.querySelector(".progress-text");
+const animateContainer = document.querySelector(".switch-animate");
 
 // Отображение показателей на круге
 function updateProgress(value) {

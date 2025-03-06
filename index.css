@@ -1,12 +1,12 @@
 /* Общий контейнер */
 .container {
     display: flex;
-    flex-direction: column;  /* По умолчанию элементы расположены вертикально */
+    flex-direction: column;
     align-items: center;
     padding: 20px;
 }
 
-/* для широких экранов */
+/* Адаптивность для широких экранов */
 @media (min-width: 600px) {
     .container {
         flex-direction: row;
@@ -17,12 +17,9 @@
     .progress-container {
         margin-right: 20px;
     }
-
-    .buttons-wrapper {
-        width: auto;
-    }
 }
 
+/* Контейнер для прогресс-круга */
 .progress-container {
     position: relative;
     width: 150px;
@@ -67,25 +64,41 @@
     animation: rotate 2s linear infinite;
 }
 
+/* Контейнер для кнопок */
 .buttons {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: flex-start; /* Выравниваем элементы по левому краю */
+    gap: 10px; /* Добавляем отступ между элементами */
     width: 100%;
 }
 
+/* Обертка для кнопок */
 .buttons-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* поле ввода */
+/* Общий контейнер для каждого элемента (input + label или checkbox + label) */
+.item-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Контейнер для подписей */
+.label-container {
+    margin-left: 10px; /* Отступ между контролем и текстом */
+    min-width: 80px; /* Фиксированная ширина для подписей */
+    text-align: left; /* Текст выровнен слева */
+}
+
+/* Стилизация поля ввода */
 .number {
     -webkit-appearance: none;
     appearance: none;
-    width: 40px;
+    width: 45px;
     height: 20px;
     padding: 5px;
     border: 2px solid #ccc;
@@ -95,20 +108,20 @@
     transition: border-color 0.3s ease;
 }
 
-/* чекбоксы и подписи */
+/* Чекбоксы и подписи */
 .switch-container {
     display: flex;
     align-items: center;
     width: 100%;
 }
 
+/* Подпись к чекбоксу */
 .switch-label {
-    margin-left: 10px;
-    font-size: 14px;
-    min-width: 80px;
-    text-align: left;
+    min-width: 80px; /* Фиксированная ширина для подписей */
+    text-align: left; /* Текст выровнен слева */
 }
 
+/* Стилизация обертки для чекбокса */
 .switch {
     position: relative;
     display: inline-block;
@@ -116,14 +129,14 @@
     height: 34px;
 }
 
-/* Сокрытие стандартного чекбокса */
+/* Скрываем стандартный чекбокс */
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-/* Фоновая панель */
+/* Создаем фоновую панель */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -136,7 +149,7 @@
     border-radius: 34px;
 }
 
-/* Кружок внутри панели */
+/* Кругляш внутри панели */
 .slider:before {
     position: absolute;
     content: "";
@@ -149,12 +162,12 @@
     border-radius: 50%;
 }
 
-/* Активный чекбокс */
+/* Когда чекбокс активен */
 input:checked + .slider {
     background-color: #2196F3;
 }
 
-/* Перемещение кружка */
+/* Перемещение кругляша при активации */
 input:checked + .slider:before {
     transform: translateX(26px);
 }
