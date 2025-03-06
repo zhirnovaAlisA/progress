@@ -36,7 +36,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: conic-gradient(#ff6f61 var(--progress, 0deg), #e0e0e0 var(--progress, 0deg));
+    background: conic-gradient(#2196F3 var(--progress, 0deg), #e0e0e0 var(--progress, 0deg));
     transition: background 0.3s ease;
 }
 
